@@ -5,7 +5,7 @@ class Solution {
          char[] ballonArray = ballon.toCharArray();
          StringBuffer sb = new StringBuffer();
          int counter=0;
-         for(int k=1;k<=text.length()/ballon.length();k++)
+         for(int k=1;k<=text.length()/ballon.length();k++)// how many times checking will continue
          {
                 for(int i=0;i<ballonArray.length;i++)
                 {
@@ -14,7 +14,7 @@ class Solution {
                         if(ballonArray[i]==textArray[j])
                         {
                            sb.append(textArray[j]);
-                           textArray[j]=' ';
+                           textArray[j]=' ';//pointing those characters what is already visited .
                            break;
                         }
                     }
@@ -23,7 +23,7 @@ class Solution {
                 if(sb.toString().equals("balloon"))
                 {
                     counter++;
-                    sb=new StringBuffer();
+                    sb=new StringBuffer();//when one string is made then we need to initiaze new string
                 }
          }
          return counter;
