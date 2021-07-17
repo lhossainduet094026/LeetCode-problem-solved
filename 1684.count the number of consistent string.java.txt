@@ -1,0 +1,23 @@
+ public int countConsistentStrings(String allowed, String[] words) {
+        int noOfConsistentWord = 0;
+        //no need to check all the character .only to check individual character in allowed             string.
+		Set<Character> allowedSet = new HashSet();
+		for (char c : allowed.toCharArray()) {
+			allowedSet.add(c);
+		}
+		for (String word : words) {
+			if (isConsistent(word, allowedSet)) {
+				noOfConsistentWord++;
+			}
+		}
+		return noOfConsistentWord;
+	}
+
+	private static boolean isConsistent(String word, Set<Character> allowedSet) {
+		for (char c : word.toCharArray()) {
+			if (!allowedSet.contains(c)) {
+				return false;
+			}
+		}
+		return true;
+	}
