@@ -1,0 +1,34 @@
+class Solution {
+    public int[][] generateMatrix(int n) {
+    
+    	int[][] ar = new int[n][n];
+		int count = 1;
+		// n+1/2 loop
+		int length = (n + 1) / 2;
+		for (int i = 0; i < length; i++) {
+
+			// top left top right(row fix col incr until n-1)
+			for (int ptr = i; ptr < n - i; ptr++) {
+				ar[i][ptr] = count++;
+			}
+
+			// top right to bottom right
+
+			for (int ptr = i + 1; ptr < n - i; ptr++) {
+				ar[ptr][n - i - 1] = count++;
+			}
+			// bottom right to bottom left
+
+			for (int ptr = i + 1; ptr < n - i; ptr++) {
+				ar[n - i - 1][n - ptr - 1] = count++;
+			}
+			// bottom left to top left
+
+			for (int ptr = i + 1; ptr < n - i - 1; ptr++) {
+				ar[n - ptr - 1][i] = count++;
+			}
+		}
+
+		return ar;
+    }    
+}
