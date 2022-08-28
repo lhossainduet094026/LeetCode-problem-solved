@@ -1,0 +1,20 @@
+class Solution {
+    public int getDecimalValue(ListNode head) {
+      	List<Integer> binList = new ArrayList<>();
+
+		ListNode current = head;
+		int i = 0;
+		while (current != null) {
+			binList.add(current.val);
+			current = current.next;
+		}
+
+		int dec = 0;
+		int k = 0;
+		for(int p = binList.size()-1; p>= 0;p--) {
+			dec += binList.get(p)* Math.pow(2, k);
+			k++;
+		}
+		return dec;  
+    }
+}
