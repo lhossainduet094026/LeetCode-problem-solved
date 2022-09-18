@@ -1,0 +1,16 @@
+class Solution {
+    int max = 0;
+    public int mostWordsFound(String[] sentences) {
+        	for (String string : sentences) {
+			String[] words = string.trim().split(" ");
+			calculateMax(words.length);
+		}
+		return max;
+    }
+    
+    private void calculateMax(int length) {
+		if(length>max) {
+			max = length;
+		}
+	}
+}
