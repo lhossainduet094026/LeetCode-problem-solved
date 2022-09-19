@@ -1,0 +1,31 @@
+
+/**
+ * @author lokman 19/09/2022
+ *
+ */
+public class BuildArrayPermuation1920 {
+
+	public int[] buildArray(int[] nums) {
+
+		int[] finalArray = new int[nums.length];
+
+		for (int i = 0; i < nums.length; i++) {
+			int n = nums[nums[i]];
+			finalArray[i] = n;
+		}
+		return finalArray;
+	}
+
+	public static void main(String[] args) {
+
+		BuildArrayPermuation1920 b = new BuildArrayPermuation1920();
+		int[] nums = { 5, 0, 1, 2, 3, 4 };
+		int[] result = b.buildArray(nums);
+
+		for (int i = 0; i < result.length; i++) {
+
+			System.out.print(result[i] + " ");
+		}
+
+	}
+}
