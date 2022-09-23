@@ -1,0 +1,42 @@
+
+public class FirstPalidromicString2108 {
+
+	public String firstPalindrome(String[] words) {
+
+		for (String word : words) {
+
+			String s = word;
+			int first = 0;
+			int last = word.length() - 1;
+
+			char[] wordCharArray = word.toCharArray();
+
+			while (first < last) {
+
+				char temp = wordCharArray[first];
+
+				wordCharArray[first] = wordCharArray[last];
+				wordCharArray[last] = temp;
+
+				first++;
+				last--;
+
+			}
+
+			String finalString = new String(wordCharArray);
+			if (s.equals(finalString)) {
+				return finalString;
+			}
+		}
+
+		return "";
+	}
+
+	public static void main(String[] args) {
+		FirstPalidromicString2108 f = new FirstPalidromicString2108();
+		String[] words = new String[] {"def","ghi"};
+
+		String result = f.firstPalindrome(words);
+		System.out.println(result);
+	}
+}
