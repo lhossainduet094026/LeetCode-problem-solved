@@ -1,0 +1,33 @@
+
+/**
+ * @author lokman 26/09/2022
+ *
+ */
+public class GoalParserInterpreter1678 {
+
+	public String interpret(String command) {
+		String result = "";
+		for (int i = 0; i < command.length(); i++) {
+
+			if (command.charAt(i) == 'G') {
+				result += "G";
+			}
+			if (command.charAt(i) == '(' && command.charAt(i + 1) == ')') {
+				result += "o";
+			}
+			if (command.charAt(i) == '(' && command.charAt(i + 1) == 'a') {
+				result += "al";
+			}
+
+		}
+		return result;
+	}
+
+	public static void main(String[] args) {
+		String command = "G()()()()(al)";
+		GoalParserInterpreter1678 g = new GoalParserInterpreter1678();
+
+		String interpret = g.interpret(command);
+		System.out.println(interpret);
+	}
+}
