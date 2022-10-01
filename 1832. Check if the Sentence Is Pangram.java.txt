@@ -1,0 +1,38 @@
+
+/**
+ * @author lokman 01/10/2022
+ *
+ */
+public class Pangram1832 {
+
+	public boolean checkIfPangram(String sentence) {
+
+		boolean[] marks = new boolean[26];
+		int index = 0;
+
+		for (int i = 0; i < sentence.length(); i++) {
+			char c = sentence.charAt(i);
+			if (c >= 'a' && c <= 'z') {
+				index = c - 'a';
+				marks[index] = true;
+			}
+
+		}
+
+		for (int i = 0; i < marks.length; i++) {
+			if (marks[i] == false) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static void main(String[] args) {
+
+		String s = "leetcode";
+
+		Pangram1832 p = new Pangram1832();
+		boolean pangram = p.checkIfPangram(s);
+		System.out.println(pangram);
+	}
+}
