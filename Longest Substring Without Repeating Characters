@@ -1,0 +1,35 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        /*
+		 * Approach
+		 * first solved brute force approach . but it takes O(n3)
+		 * because every time each substring need to compare again with its character.
+		 * So solution is sliding window. 
+		 * Sliding window pattern: subarray, subsequence, substring
+		 
+		 * sliding window approach:
+		 * 1. Expand window and increase count
+		 * 2. If found duplicate shrink from left until unique.
+		 * 3. Increment start pointer
+		 * 4. update length.
+		 * 		
+		 *  */
+		
+		Map<Character, Integer> map = new HashMap<>();
+		int start = 0, maxLen = 0;
+		for (int end = 0; end < s.length(); end++) {
+			char right = s.charAt(end);
+			map.put(right, map.getOrDefault(right, 0) + 1);
+
+			while (map.get(right) > 1) {
+				char left = s.charAt(start);
+				map.put(left, map.get(left) - 1);
+				start++;
+			}
+
+			maxLen = Math.max(maxLen, end - start + 1);
+		}
+
+		return maxLen;
+    }
+}
